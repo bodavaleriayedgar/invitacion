@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Invitación | Valeria & Edgar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+	/* ===== COLOR DE FONDO ===== */
+    html, body {
+      width: 100%;
+
+      overflow-x: hidden; 
+      font-family: 'Kasei HarunoUmi', serif;
+    }
+	/* ===== IMAGEN FONDO ===== */
+body {
+  background-color: #d0b6a3;
+  overflow-x: hidden;
+  font-family: 'Kaisei HarunoUmi', serif;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("fondo.png") no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+}
+
+
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.master-altura {
+	padding-bottom: 890%
+}
+
+    /* ===== CONTENEDOR MAESTRO ===== */
+.master-container {
+  width: 90%;
+  max-width: 85vw;   /* relativo al ancho de pantalla */
+  position: relative;
+  margin-top: 0vh; /* relativo a la altura */
+  margin-left: 5vw;
+  z-index: 2;
+}
+
+.sobre {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== GRUPO PAPEL + CONTADOR (DENTRO DEL MAESTRO) ===== */
+.papel-wrapper {
+  position: absolute;  /* Se clava respecto al sobre */
+  width: 85%;          /* Ancho relativo al sobre */
+/* AJUSTA ESTO PARA METER EL PAPEL EN EL SOBRE */											   
+  top: 51%;           
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.papel1 {
+  width: 100%;
+  display: block;
+}
+	   
+.sello {
+  position: absolute;
+/* AJUSTA ESTO PARA UBICARLO EN EL DIBUJO DEL PAPEL */
+  top: 3%; 
+  left: 48%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 0vw;
+  width: 26%;
+  justify-content: center;
+}
+
+/* ===== CONTADOR(DENTRO DEL PAPEL) ===== */
+.countdown {
+  position: absolute;
+/* AJUSTA ESTO PARA UBICARLO EN EL DIBUJO DEL PAPEL */
+  top: 85%; 
+  left: 48%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 2vw;
+  width: 90%;
+  justify-content: center;
+}
+
+.time-box span {
+  display: block;
+  font-size: clamp(1rem, 4vw, 2rem);
+  font-weight: 300;
+  color: #000;
+  line-height: 1;
+}
+
+.time-box small {
+   display: block;
+   font-size: clamp(0.6rem, 2vw, 0.9rem);
+   letter-spacing: 0.1rem;
+   text-transform: uppercase;
+   color: #000;
+}
+
+.separator { font-size: clamp(1rem, 3vw, 1.5rem); color: #000; }
+  
+
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 500px) {
+	.countdown {
+    gap: 1vw;
+    }
+	.content-box {
+    padding: 3vh 2vw;
+	}
+}
+
+	
+.photo-box {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 120%;             /* ajusta cuánto sube la foto */
+  left: 3%;
+  transform: translateX(-50%);
+  width: 95%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 1;           /* detrás del master */
+}
+.foto1 {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.master-foto1 {
+  position: relative;   /* padre con referencia */
+  width: 100%;
+  max-width: 100vw;
+}
+
+
+
+.photo-box1 {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 187%;             /* ajusta cuánto sube la foto */
+  left: 0%;
+  transform: translateX(-50%);
+  width: 65%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 1;           /* detrás del master */
+}
+.ceremonia {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.master-foto1-ceremonia {
+  position: relative;   /* padre con referencia */
+  width: 100%;
+  max-width: 100vw;
+}
+
+
+
+.photo-box2 {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 183%;             /* ajusta cuánto sube la foto */
+  left: 44%;
+  transform: translateX(-50%);
+  width: 70%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 1;           /* detrás del master */
+}
+.detalle {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.ubicacion-box {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 243.5%;             /* ajusta cuánto sube la foto */
+  left: 20.2%;
+  transform: translateX(-50%);
+  width: 25%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 1;
+}
+.btn-img-ubi {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.master-foto1-ceremonia-detalle {
+  position: relative;   /* padre con referencia */
+  width: 100%;
+  max-width: 100vw;
+}
+
+
+
+.photo-box3 {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 235%;             /* ajusta cuánto sube la foto */
+  left: -13%;
+  transform: translateX(-50%);
+  width: 120%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 0;           /* detrás del master */
+}
+.sobre2 {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.photo-box4 {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 261%;             /* ajusta cuánto sube la foto */
+  left: 40%;
+  transform: translateX(-50%);
+  width: 65%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 1; 
+}
+.recepcion {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.ubicacion-box2 {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 314%;             /* ajusta cuánto sube la foto */
+  left: 58.7%;
+  transform: translateX(-50%);
+  width: 25%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 1;
+}
+.btn-img-ubi2 {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.master-foto1-ceremonia-detalle-recepcion {
+  position: relative;   /* padre con referencia */
+  width: 100%;
+  max-width: 100vw;
+}
+
+
+
+.photo-box5 {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 330%;             /* ajusta cuánto sube la foto */
+  left: 5.5%;
+  transform: translateX(-50%);
+  width: 90%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 1;           /* detrás del master */
+}
+.chihuahua {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.master-foto1-ceremonia-detalle-recepcion-cuu {
+  position: relative;   /* padre con referencia */
+  width: 100%;
+  max-width: 100vw;
+}
+
+
+
+.photo-box6 {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 396%;             /* ajusta cuánto sube la foto */
+  left: -10%;
+  transform: translateX(-50%);
+  width: 120%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 1;           /* detrás del master */
+}
+.itinerario {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.photo-box7 {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 390%;             /* ajusta cuánto sube la foto */
+  left: 40%;
+  transform: translateX(-50%);
+  width: 20%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 3;           /* detrás del master */
+}
+.sello2 {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.master-foto1-ceremonia-detalle-recepcion-cuu-itinerario {
+  position: relative;   /* padre con referencia */
+  width: 100%;
+  max-width: 100vw;
+}
+
+
+.photo-box8 {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 525%;             /* ajusta cuánto sube la foto */
+  left: 6%;
+  transform: translateX(-50%);
+  width: 90%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 1;           /* detrás del master */
+}
+.regalos {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.ubicacion-box3 {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 585%;             /* ajusta cuánto sube la foto */
+  left: 22%;
+  transform: translateX(-50%);
+  width: 25%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 1;
+}
+.btn-img-ubi3 {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.master-foto1-ceremonia-detalle-recepcion-cuu-itinerario-regalos {
+  position: relative;   /* padre con referencia */
+  width: 100%;
+  max-width: 100vw;
+}
+
+
+.photo-box9 {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 640%;             /* ajusta cuánto sube la foto */
+  left: 20%;
+  transform: translateX(-50%);
+  width: 80%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 1;           /* detrás del master */
+}
+.foto2 {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.photo-box10 {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 630%;             /* ajusta cuánto sube la foto */
+  left: -8%;
+  transform: translateX(-50%);
+  width: 62%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 1;           /* detrás del master */
+}
+.pases {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.master-foto1-ceremonia-detalle-recepcion-cuu-itinerario-regalos-aviso {
+  position: relative;   /* padre con referencia */
+  width: 100%;
+  max-width: 100vw;
+}
+
+
+.photo-box11 {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 720%;             /* ajusta cuánto sube la foto */
+  left: 5%;
+  transform: translateX(-50%);
+  width: 90%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 1;           /* detrás del master */
+}
+.asistencia {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.master-foto1-ceremonia-detalle-recepcion-cuu-itinerario-regalos-aviso-asistencia {
+  position: relative;   /* padre con referencia */
+  width: 100%;
+  max-width: 100vw;
+}
+
+
+.confirmacion {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 770%;             /* ajusta cuánto sube la foto */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  text-align: center;
+  z-index: 3;
+}
+.sub {
+font-family: 'Kaisei HarunoUmi', sans-serif;
+  font-size: clamp(8px, 3vw, 100px);
+  opacity: 0.7;
+  margin-bottom: 6%;
+}
+/* SELECT PERSONALIZADO */
+.custom-select {
+  position: relative;
+  width: 100%;
+  font-family: 'Kaisei HarunoUmi', sans-serif;
+  font-size: clamp(8px, 3vw, 100px);
+  margin-bottom: 6%;
+}
+
+.selected {
+  padding: 2%;
+  background: white;
+  border: 0.15em solid #ccc;
+  border-radius: 0.9em;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  font-family: 'Kaisei HarunoUmi', sans-serif;
+  font-size: clamp(8px, 3vw, 100px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* LISTA */
+.options {
+  display: none;
+  position: absolute;
+  width: 100%;
+  max-height: 45vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 0.9em;
+  margin-top: 2%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  z-index: 20;
+}
+
+.option {
+  padding: 2%;
+  font-family: 'Kaisei HarunoUmi', sans-serif;
+  font-size: clamp(8px, 4vw, 100px);
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #f2ebe6;
+}
+/* PASES */
+#pasesBox {
+  display: none;
+}
+
+.pases {
+  display: flex;
+  justify-content: center;
+  gap: 4%;
+  margin: 5% 0 8%;
+}
+
+.pases button {
+  width: 14%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 0.15em solid #3b1212;
+  background: transparent;
+  font-family: 'Kaisei HarunoUmi', sans-serif;
+  font-size: clamp(8px, 3vw, 100px);
+  cursor: pointer;
+}
+
+.pases button.active {
+  background: #3b1212;
+  color: white;
+}
+
+/* BOTON */
+.confirmar {
+  width: 50%;
+  padding: 2%;
+  background: #3b1212;
+  color: white;
+  border: none;
+  border-radius: 0.9em;
+  font-family: 'Kaisei HarunoUmi', sans-serif;
+  font-size: clamp(8px, 3vw, 100px);
+  cursor: pointer;
+}
+
+/* MENSAJE */
+.mensaje {
+  margin-top: 4%;
+  font-family: 'Kaisei HarunoUmi', sans-serif;
+  font-size: clamp(8px, 3vw, 100px);
+}
+.master-DB {
+  position: relative;   /* padre con referencia */
+  width: 100%;
+  max-width: 100vw;
+}
+
+
+
+.photo-box12 {
+  position: absolute;   /* se coloca dentro del mismo contenedor */
+  top: 840%;             /* ajusta cuánto sube la foto */
+  left: -4%;
+  transform: translateX(-50%);
+  width: 110%;           /* tamaño grande y responsivo */
+  height: auto;
+  z-index: 1;           /* detrás del master */
+}
+.foto3 {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.master-foto1-ceremonia-detalle-recepcion-cuu-itinerario-regalos-aviso-asistencia-foto3 {
+  position: relative;   /* padre con referencia */
+  width: 100%;
+  max-width: 100vw;
+}
+/* ===== BLINDAJE iOS ===== */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  -webkit-text-fill-color: inherit;
+}
+/* ===== FIX iOS BOTONES AZULES ===== */
+.pases button {
+  color: #3b1212 !important;
+  -webkit-text-fill-color: #3b1212 !important;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.pases button.active {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+  </style>
+</head>
+<body>
+
+  <section class="section">
+	<div class="master-altura">
+		<div class="master-foto1-ceremonia-detalle-recepcion-cuu-itinerario-regalos-aviso-asistencia-foto3">
+			<div class="master-DB">
+				<div class="master-foto1-ceremonia-detalle-recepcion-cuu-itinerario-regalos-aviso-asistencia">
+					<div class="master-foto1-ceremonia-detalle-recepcion-cuu-itinerario-regalos-aviso">
+						<div class="master-foto1-ceremonia-detalle-recepcion-cuu-itinerario-regalos">
+							<div class="master-foto1-ceremonia-detalle-recepcion-cuu-itinerario">
+								<div class="master-foto1-ceremonia-detalle-recepcion-cuu">
+									<div class="master-foto1-ceremonia-detalle-recepcion">
+										<div class="master-foto1-ceremonia-detalle">
+										  <div class="master-foto1-ceremonia">
+											<div class="master-foto1">
+												<div class="master-container" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic">
+												  <img src="sobre.png" class="sobre" alt="sobre">
+												  
+												  <div class="papel-wrapper">
+													<img src="papel1.png" class="papel1" alt="papel1">
+													<img src="sello.png" class="sello" alt="sello">
+													
+													<div class="countdown" id="countdown">
+													  <div class="time-box">
+														<span id="days">000</span>
+														<small>Días</small>
+													  </div>
+													  <span class="separator">:</span>
+													  <div class="time-box">
+														<span id="hours">00</span>
+														<small>Hrs</small>
+													  </div>
+													  <span class="separator">:</span>
+													  <div class="time-box">
+														<span id="minutes">00</span>
+														<small>Min</small>
+													  </div>
+													  <span class="separator">:</span>
+													  <div class="time-box">
+														<span id="seconds">00</span>
+														<small>Seg</small>
+													  </div>
+													</div>
+												  </div>
+													
+												</div>
+												<div class="photo-box"data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic" > 
+													<img src="foto1.png" alt="foto1" class="foto1"> 
+												</div>
+											</div>
+											<div class="photo-box1" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic"> 
+												<img src="ceremonia.png" alt="ceremonia" class="ceremonia"> 
+											</div>
+											</div>
+											<div class="photo-box2" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic"> 
+												<img src="detalle.png" alt="detalle" class="detalle"> 
+											</div>
+											
+											<div class="ubicacion-box" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic">
+											<a href="https://maps.app.goo.gl/iFF8YFHwwf4dSwmp7"> 
+												<img src="ubicacion.png" alt="ubicacion" class="btn-img-ubi">
+											</a>
+											</div>
+										</div>
+										<div class="photo-box3" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic"> 
+											<img src="sobre2.png" alt="sobre2" class="sobre2"> 
+										</div>
+										<div class="photo-box4" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic"> 
+											<img src="recepcion.png" alt="recepcion" class="recepcion"> 
+										</div>
+										<div class="ubicacion-box2" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic">
+										<a href="https://maps.app.goo.gl/d8oo5oBxQLrFFres8"> 
+											<img src="ubicacion2.png" alt="ubicacion2" class="btn-img-ubi2">
+										</a>
+										</div>
+									</div>
+									<div class="photo-box5" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic"> 
+										<img src="chihuahua.png" alt="chihuahua" class="chihuahua"> 
+									</div>
+								</div>
+								<div class="photo-box6" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic"> 
+									<img src="itinerario.png" alt="itinerario" class="itinerario"> 
+								</div>
+								<div class="photo-box7" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic"> 
+									<img src="sello2.png" alt="sello2" class="sello2"> 
+								</div>
+							</div>
+							<div class="photo-box8" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic"> 
+								<img src="regalos.png" alt="regalos" class="regalos"> 
+							</div>
+							<div class="ubicacion-box3" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic">
+								<a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51662554"> 
+									<img src="ubicacion3.png" alt="ubicacion3" class="btn-img-ubi3">
+								</a>
+							</div>
+						</div>
+						<div class="photo-box9" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic"> 
+							<img src="foto2.png" alt="foto2" class="foto2"> 
+						</div>
+						<div class="photo-box10" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic"> 
+							<img src="pases.png" alt="pases" class="pases"> 
+						</div>
+					</div>
+					<div class="photo-box11" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic"> 
+						<img src="asistencia.png" alt="asistencia" class="asistencia"> 
+					</div>				
+				</div>
+				<div class="confirmacion">
+					<p class="sub">SELECCIONA TU NOMBRE</p>
+					<!-- SELECT PERSONALIZADO -->
+					<div class="custom-select" id="customSelect">
+						<div class="selected">
+							<span id="selected">— Selecciona tu nombre —</span>
+							<span class="arrow">▾</span>
+						</div>
+						<div class="options" id="options"></div>
+					</div>
+					<div id="pasesBox">
+						<p>Pases asignados: <strong><span id="pasesAsignados"></span></strong></p>
+						<div class="pases" id="pasesBtns"></div>
+						<button class="confirmar" onclick="confirmar()">Confirmar asistencia</button>
+						<div class="mensaje" id="mensaje"></div>
+					</div>
+				</div>
+			</div>	
+			<div class="photo-box12" data-aos="zoom-in" data-aos-duration="1000"data-aos-easing="ease-out-cubic"> 
+				<img src="foto3.png" alt="foto3" class="foto3"> 
+			</div>
+		</div>	
+	</div>
+  </section>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+
+    const weddingDate = new Date(2026, 3, 25, 13, 30, 0);
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "¡Hoy es el día!";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      document.getElementById("days").textContent = String(days).padStart(3, '0');
+      document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbzSzy3ooMy_SaCHdy3ySIGCsLg2WUfIEuDqPyaaBB4Aql7mE1xFg8-xx8JLwrmWjvJhIg/exec";
+
+let invitados = [];
+let invitadoActual = null;
+let pasesElegidos = 1;
+
+const selected = document.getElementById("selected");
+const optionsBox = document.getElementById("options");
+const selectBox = document.querySelector(".selected");
+
+fetch(API_URL)
+  .then(r => r.json())
+  .then(data => {
+    invitados = data;
+
+    data.forEach(i => {
+      const div = document.createElement("div");
+      div.className = "option";
+      div.textContent = i.nombre;
+
+      div.onclick = () => {
+        selected.textContent = i.nombre;
+        optionsBox.style.display = "none";
+        seleccionarInvitado(i);
+      };
+
+      optionsBox.appendChild(div);
+    });
+  });
+
+selectBox.onclick = () => {
+  optionsBox.style.display =
+    optionsBox.style.display === "block" ? "none" : "block";
+};
+
+function seleccionarInvitado(i) {
+  invitadoActual = i;
+  document.getElementById("pasesBox").style.display = "block";
+  document.getElementById("pasesAsignados").textContent = i.pases;
+  crearBotonesPases(i.pases);
+}
+
+function crearBotonesPases(pases) {
+  const cont = document.getElementById("pasesBtns");
+  cont.innerHTML = "";
+  pasesElegidos = 1;
+
+  for (let x = 1; x <= pases; x++) {
+    const btn = document.createElement("button");
+    btn.textContent = x;
+    if (x === 1) btn.classList.add("active");
+
+    btn.onclick = () => {
+      pasesElegidos = x;
+      [...cont.children].forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    };
+
+    cont.appendChild(btn);
+  }
+}
+
+function confirmar() {
+  fetch(API_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      nombre: invitadoActual.nombre,
+      pasesConfirmados: pasesElegidos
+    })
+  }).then(() => {
+    document.getElementById("mensaje").textContent =
+      "Gracias por confirmar tu asistencia";
+  });
+}
+</script>
+</body>
+</html>
