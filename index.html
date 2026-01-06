@@ -576,6 +576,11 @@ a {
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
 }
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 
   </style>
 </head>
@@ -699,7 +704,7 @@ a {
 					<div id="pasesBox">
 						<p>Pases asignados: <strong><span id="pasesAsignados"></span></strong></p>
 						<div class="pases" id="pasesBtns"></div>
-						<button class="confirmar" onclick="confirmar()">Confirmar asistencia</button>
+						<button class="confirmar" id="btnConfirmar" onclick="confirmar()">Confirmar asistencia</button>
 						<div class="mensaje" id="mensaje"></div>
 					</div>
 				</div>
@@ -799,17 +804,33 @@ function crearBotonesPases(pases) {
 }
 
 function confirmar() {
+  const btn = document.getElementById("btnConfirmar");
+
+  if (btn.disabled) return;
+
+  btn.disabled = true;
+  btn.textContent = "Confirmando...";
+
   fetch(API_URL, {
     method: "POST",
     body: JSON.stringify({
       nombre: invitadoActual.nombre,
       pasesConfirmados: pasesElegidos
     })
-  }).then(() => {
+  })
+  .then(() => {
     document.getElementById("mensaje").textContent =
       "Gracias por confirmar tu asistencia";
+    btn.textContent = "Confirmado ✓";
+  })
+  .catch(() => {
+    btn.disabled = false;
+    btn.textContent = "Confirmar asistencia";
+    document.getElementById("mensaje").textContent =
+      "Ocurrió un error, intenta de nuevo";
   });
 }
+
 </script>
 </body>
 </html>
